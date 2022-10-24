@@ -8,8 +8,13 @@
 </head>
 <body>
     <H1>GET與POST練習</H1>
-    <a href="./BMI.php">BMI計算</a>
-    <a href=""></a>
-    <a href=""></a>
+
+    <ul>
+        <li><a href="./BMI.php">BMI計算</a></li>
+        <li><a href="./login.php">會員登入</a></li>
+        <li><a href="./calendar.php">萬年曆</a></li>
+        <li></li>
+    </ul>
+
 </body>
 </html>
