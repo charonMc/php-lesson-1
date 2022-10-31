@@ -48,15 +48,20 @@ $firstDay=$year."-".$month."-1";
 $firstDayWeek=date("N",strtotime($firstDay));
 $monthDays=date("t",strtotime($firstDay));
 $lastDay=$year.'-'.$month.'-'.$monthDays;
-$spaceDays=$firstDayWeek-1;
-$weeks=ceil(($monthDays+$spaceDays)/7);
+$lastDayWeek=date('N',strtotime($lastDay));
+$spaceDaysbefore=$firstDayWeek-1;
+$spaceDaysbeforeafter=7-$lastDayWeek;
+$weeks=ceil(($monthDays+$spaceDaysbefore)/7);
 
-for($i=0;$i<$spaceDays;$i++){
+for($i=0;$i<$spaceDaysbefore;$i++){
     $cal[]='';
 }
 
 for($i=0;$i<$monthDays;$i++){
     $cal[]=date("Y-m-d",strtotime("+$i days",strtotime($firstDay)));
+}
+for($i=0;$i<$spaceDaysbeforeafter;$i++){
+    $cal[]='';
 }
 
 /* echo "<pre>";
@@ -65,9 +70,9 @@ echo "</pre>"; */
 
 echo "第一天".$firstDay."星期".$firstDayWeek;
 echo "<br>";
-echo "該月共".$monthDays."天,最後一天是".$lastDay;
+echo "該月共".$monthDays."天,最後一天是".$lastDay."星期".$lastDayWeek;
 echo "<br>";
-echo "月曆天數共".($monthDays+$spaceDays)."天，".$weeks."周";
+echo "月曆天數共".($monthDays+$spaceDaysbefore+$spaceDaysbeforeafter)."天，".$weeks."周";
 
 ?>
 
