@@ -56,7 +56,6 @@ $weeks=ceil(($monthDays+$spaceDaysbefore)/7);
 for($i=0;$i<$spaceDaysbefore;$i++){
     $cal[]='';
 }
-
 for($i=0;$i<$monthDays;$i++){
     $cal[]=date("Y-m-d",strtotime("+$i days",strtotime($firstDay)));
 }

@@ -13,7 +13,7 @@
         <li><a href="./BMI.php">BMI計算</a></li>
         <li><a href="./login.php">會員登入</a></li>
         <li><a href="./calendar.php">萬年曆</a></li>
-        <li></li>
+        <li><a href="./login2.php">會員登入-使用session</a></li>
     </ul>
 
 </body>
