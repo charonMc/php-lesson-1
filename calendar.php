@@ -11,6 +11,7 @@
         *{
             margin: 0;
             padding: 0;
+            text-align: center;
         }
         table{
             border-collapse: collapse;
@@ -19,6 +20,8 @@
             border:1px solid #ccc;
             padding:3px 9px;
         }
+        
+
     </style>
 </head>
 <body>
@@ -75,12 +78,12 @@ echo "月曆天數共".($monthDays+$spaceDaysbefore+$spaceDaysbeforeafter)."天�
 
 ?>
 
-<div style="display:flex;width:80%;justify-content:space-around;align-items:center">
+<div style="display:flex;width:80%;justify-content:center;margin:auto">
     <!-- <a href="?y=<?=$prevYear;?>&m=<?=$prevMonth;?>">上一個月</a> -->
-    <h1><?=$year;?> 年 <?=$month;?> 月份</h1>
+    <h2><?=$year;?> 年 <?=$month;?> 月份</h2>
     <!-- <a href="?y=<?=$nextYear;?>&m=<?=$nextMonth;?>">下一個月</a> -->
 </div>
-<ul class="pagination">
+<ul class="pagination d-flex " >
     <li class="page-item"><a class="page-link" href="?y=<?=$prevYear;?>&m=<?=$prevMonth;?>">Previous</a></li>
     <li class="page-item"><a class="page-link" href="?y=<?=$year;?>&m=1">1</a></li>
     <li class="page-item"><a class="page-link" href="?y=<?=$year;?>&m=2">2</a></li>
@@ -99,11 +102,36 @@ echo "月曆天數共".($monthDays+$spaceDaysbefore+$spaceDaysbeforeafter)."天�
 
 <table>
 <?php
+echo "<tr style='background:#0080FF;font-weight: bold;'>
+    <td style='background:#FF0000'>日</td>
+    <td >一</td>
+    <td >二</td>
+    <td >三</td>
+    <td >四</td>
+    <td >五</td>
+    <td style='background:#FF0000'>六</td>
+</tr>";
 foreach($cal as $i => $day){
     if($i%7==0){
         echo "<tr>";
     }
-        echo "<td>$day</td>";
+
+    if($i%7==0 || $i%7==6){
+        if($day==date("Y-m-d")){
+            echo "<td style='color:blue;background:#FF9797'>$day</td>";
+        }else{
+            echo "<td style='background:#FF9797 '>$day</td>";
+
+        }
+
+    }
+    else if($day==date("Y-m-d")){
+        echo "<td style='color:blue;background:#84C1FF'>$day</td>";
+
+    }else{
+        echo "<td style='background:#84C1FF'>$day</td>";
+        
+    }
 
     if($i%7==6){
         echo "</tr>";

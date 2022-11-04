@@ -18,6 +18,6 @@
 
     ?>
 
-    <a href="/session_02.php"></a>
+    <a href="/session_02.php">2</a>
 </body>
 </html>
